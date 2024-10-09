@@ -1,0 +1,54 @@
+const storage = multer.diskStorage({
+    destination:( req , file ,cb)=>{
+        cb(null ,'./images/product' )
+    },
+    filename:( req , file , cb ) => {
+        cb(null ,`${Date.now()}_${file.originalname}` );
+    }
+});
+
+const upload = multer(
+    { 
+        storage ,
+        limits:{fieldSize: 5 * 1024 * 1024},
+
+        fileFilter:(req, file ,cb)=>{
+            const filesTypes = /png|jpg|jpeg/;
+            const mimeFile   = filesTypes.test(file.mimetype);
+            const exName     = filesTypes.test(path.extname(file.originalname).toLowerCase() );
+            
+            if(mimeFile && exName ){
+                return cb(null ,true);
+            }
+
+            cb( Error('has error in type image .....'))
+        }
+    })
+
+
+app.post('/upload' ,upload.single('image'),async( req , res , next ) => {
+    try{
+        const {category , productName , quantity } = req.body;
+        const {filename ,path:filePath} = req.file ;
+        console.log(req.body);
+        console.log(req.file);
+        
+        
+        const produc = await Product.create({productName:productName,filename,category:category,image_path:filePath,quantity:parseInt(quantity)})        
+        res.json({
+            action:'{category ,productName ,quantity ,filename ,filePath}'
+        })
+
+    }catch(err){
+        throw new Error(err)
+    }
+})
+
+
+app.get('/getproduct' ,async( req , res , next ) => {
+    const pro =await Product.findAll()
+    res.json({
+    
+        action: pro
+    })
+})
