@@ -16,7 +16,8 @@ const LoginPage = () => {
   });
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <>
+      <div className="min-h-screen flex items-center justify-center bg-opacity-50 bg-white dark:bg-opacity-95 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Login to Gallery</h2>
         <Formik
@@ -84,7 +85,9 @@ const LoginPage = () => {
           )}
         </Formik>
       </div>
-    </div>
+      </div>
+    </>
+
   );
 };
 

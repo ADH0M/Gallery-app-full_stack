@@ -4,6 +4,7 @@ import Aside from './Components/ASide/Aside'
 import HomePage from './Components/pages/HomePage'
 import SignUp from './Authentication/SignUp'
 import Login from './Authentication/Login'
+import Shop from './Components/pages/Shop'
 
 const router = createBrowserRouter([
     { 
@@ -13,12 +14,14 @@ const router = createBrowserRouter([
         { 
           path:'/',
           element:<div>Children</div>
-        }
+        },
+
+        { path:'/aside', element:<Aside/> },
+        { path:'/signup', element:<SignUp/> },
+        { path:'/login', element:<Login/> },
+        { path:'/shop', element:<Shop/> },
       ]
     },
-    { path:'/aside', element:<Aside/> },
-    { path:'/signup', element:<SignUp/> },
-    { path:'/login', element:<Login/> },
 
 
 ])
