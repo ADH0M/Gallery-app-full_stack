@@ -1,15 +1,20 @@
 const { Router } = require('express');
-const { Product, Category } = require('../../model/productModel');
-const { Op } = require('sequelize');
-const { getAllProducts, getOneProduct } = require('../../services/productsServices');
-const { getProductValidator } = require('../../validators/productValidation');
+const { getAllProducts, getOneProduct, createProdcut, uploadAvatar,resizeProductAvatar } = require('../../services/productsServices');
+const { getProductValidator, createProductValidator } = require('../../validators/productValidation');
+const express = require('express');
+const path = require('path');
 
 const router = Router();
 
-router.get('/', getAllProducts);
+router.use('/images' ,express.static(path.join(__dirname ,'../../upload/productsImg/avatar')))
+
+router
+    .get('/', getAllProducts)
+    // .post('/createproduct' ,createProductValidator,createProdcut);
+    .post('/image' , uploadAvatar.single('avatar') , resizeProductAvatar , createProductValidator ,createProdcut )
 
 router
     .route('/:id')
-    .get(getProductValidator,getOneProduct)
+    .get(getProductValidator,getOneProduct);
 
 module.exports = router;

@@ -4,7 +4,7 @@ const connectMySQL = require('../database/connectMySql');
 
 const Product = connectMySQL.define('Product',{
     id:{type:DataTypes.INTEGER ,primaryKey:true },
-    tittle:{type:DataTypes.STRING(255)},
+    title:{type:DataTypes.STRING(255)},
     price :{type:DataTypes.DECIMAL(9,3)},
     description:{type:DataTypes.TEXT },
     stock:{type:DataTypes.INTEGER} ,
