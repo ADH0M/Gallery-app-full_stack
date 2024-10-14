@@ -1,6 +1,6 @@
 const asyncHandler = require('express-async-handler');
 const { Product, Category } = require('../model/productModel');
-const {Op} =require('sequelize');
+const {Op, where} =require('sequelize');
 const ApiError = require('../utils/apiError');
 const { v4: uuidv4 } = require('uuid');
 const sharp = require('sharp');
@@ -40,7 +40,7 @@ exports.resizeProductAvatar = asyncHandler( async ( req , res , next ) => {
         req.body.avatar = fileName;
     }
     next()
-})
+});
 
 exports.getAllProducts = asyncHandler ( async (req, res, next) => {
     const { searchCategory, limit, page, minPrice, maxPrice, name } = req.query;
@@ -93,30 +93,60 @@ exports.getOneProduct = asyncHandler ( async(req,res,next)=>{
     }catch(err){
         next(new ApiError(err,404))
     }
-})
+});
 
 
-exports.updateProdcut = asyncHandler(async (req , res , next )=>{
-    res.json({update:'update'})
-})
 
 exports.createProdcut = asyncHandler(async (req , res , next )=>{
     try{
         const { name , title , description , stock , price , category_id ,avatar} = req.body;
         const product = await Product.create({name ,title , description ,stock , price , category_id ,avatar});
         res.json({
-            createProduct:{
                 state:'ok',
                 data:[],
                 toUseImage:'http://localhost:4000/product/images/theAvaterColumn',
                 error :null,
-                info:'create new user succeful'
-
-        }});
+                message:'create new user succeful'
+        });
 
     }catch(err){
         next (new ApiError(err));
     }
-})
+});
 
 
+exports.updateProdcut = asyncHandler(async (req , res , next )=>{
+    try{
+        const {id} = req.params;
+        const document = await Product.update({...req.body },{ where:{id}}) 
+        if(!document){
+            return next(new ApiError ('no'))
+        };
+        res.json({
+            state:'ok',
+            message :'updata product succeful .',
+            data : [],
+            error:null
+        });
+    }catch(err){
+        next(new ApiError(err , 400))
+    }
+});
+
+exports.deleteProduct = asyncHandler(async (req , res , next )=>{
+    try{
+        const {id} = req.params;
+        const document = await Product.destroy({ where:{id} });
+        if(document === 0 ){
+            return next(new ApiError ('no product deleted' ,404))
+        };
+        res.json({
+            state:'ok',
+            message :'delete product succeful .',
+            data : {deleteState:document},
+            error:'warnnig'
+        });
+    }catch(err){
+        next(new ApiError(err , 400))
+    }
+});
