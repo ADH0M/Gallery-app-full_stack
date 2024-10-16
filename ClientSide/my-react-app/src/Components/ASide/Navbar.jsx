@@ -33,8 +33,8 @@ const Navbar = () => {
         <div className="hidden flex-1 felx justify-center lg:flex space-x-4">
           <NavLink  to="" className="hover:text-indigo-500 dark:hover:text-indigo-300" >Home</NavLink>
           <NavLink to="shop" className= "hover:text-indigo-500 dark:hover:text-indigo-300" >Shop</NavLink>
-          <NavLink to="Inspiration" className="hover:text-indigo-500 dark:hover:text-indigo-300" >Inspiration</NavLink>
           <NavLink to="contactus" className="hover:text-indigo-500 dark:hover:text-indigo-300"  >Contact Us</NavLink>
+          <NavLink to="Inspiration" className="hover:text-indigo-500 dark:hover:text-indigo-300" >Track your order</NavLink>
         </div>
 
         <div className=" gap-4 mx-1 w-fit flex justify-end pr:4 lg:pr-8 ">
@@ -103,8 +103,8 @@ const Navbar = () => {
                 </div>
                 <Link to="" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Home</Link>
                 <Link to="shop" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Shop</Link>
-                <Link to="Inspiration" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Inspiration</Link>
                 <Link to="contactus" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Contact Us</Link>
+                <Link to="Inspiration" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Track your order</Link>
                 <div className="flex flex-col space-y-2 px-4 py-2">
                   <button
                     type="button"
