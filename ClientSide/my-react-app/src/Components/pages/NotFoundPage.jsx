@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
   return (
-    <div className=" flex flex-col justify-center bg-white dark:bg-gray-900 text-center items-center">
+    <div className=" flex flex-col h-[100vh] justify-center overflow-hidden bg-white dark:bg-gray-900 text-center items-center">
       <img
         src="../../../public/NotFound.svg"
         alt="not found page"
