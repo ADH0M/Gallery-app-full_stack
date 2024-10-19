@@ -3,11 +3,28 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import './navStyle.css'
 const Navbar = () => {
+  const [isSticky, setIsSticky] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 70) { // Adjust this value as needed
+      setIsSticky(true);
+    } else {
+      setIsSticky(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const navigate = useNavigate();
-    const [isMenuOpen , setIsMenuOpen] = useState(false);
-    const [darkMode , setDarkMode] = useState(()=>{
-      const saveDarkMode = localStorage.getItem("darkMode")
-      return saveDarkMode ? JSON.parse(saveDarkMode) : false
+  const [isMenuOpen , setIsMenuOpen] = useState(false);
+  const [darkMode , setDarkMode] = useState(()=>{
+  const saveDarkMode = localStorage.getItem("darkMode")
+  return saveDarkMode ? JSON.parse(saveDarkMode) : false
      } );
      const toggleDarkMode =()=>{
       return setDarkMode(!darkMode)
@@ -22,8 +39,8 @@ const Navbar = () => {
       localStorage.setItem("darkMode" ,JSON.stringify(darkMode))
     },[darkMode]);
   return (
-    <nav className ="bg-white   w-full z-50 top-0 dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-md">
-      <div className="fixed bg-white top-0 -left-0  w-full z-50 top-0 dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-md">
+    <nav className ={`bg-white ${isSticky ? 'fixed top-0 w-full z-50 ' : 'relative'}  w-full z-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-md`}>
+      <div className=" bg-white   w-full z-50 top-0 dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-md">
       <div className="container  mx-auto flex items-center justify-between p-4">
         <div className="flex items-center cursor-pointer" onClick={()=>{navigate('/')}}>
           <img src="../../../gallery.icon.png" width={50} alt="logo" className="mr-2 rounded-md" />

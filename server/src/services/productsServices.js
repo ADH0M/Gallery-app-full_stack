@@ -15,7 +15,7 @@ exports.uploadAvatar  = multer({
     fileFilter: ( req , file , cb ) => {
         const fileType = /jpeg|jpg|png/ ;
         const mimeType = fileType.test(file.mimetype);
-        const extName  = fileType.test(path.extname(file.originalname).toLocaleLowerCase());        
+        const extName  = fileType.test(path.extname(file.originalname).toLowerCase());        
         if(mimeType && extName){
             return cb( null , true );
         };
@@ -100,11 +100,11 @@ exports.getOneProduct = asyncHandler ( async(req,res,next)=>{
 exports.createProdcut = asyncHandler(async (req , res , next )=>{
     try{
         const { name , title , description , stock , price , category_id ,avatar} = req.body;
-        const product = await Product.create({name ,title , description ,stock , price , category_id ,avatar});
+        const product = await Product.create({name ,title , description ,stock , price , category_id ,avatar:`productsImg/avatar/${avatar}`});
         res.json({
                 state:'ok',
                 data:[],
-                toUseImage:'http://localhost:4000/product/images/theAvaterColumn',
+                toUseImage:'http://localhost:4000/productsImg/avatar/theAvaterColumn',
                 error :null,
                 message:'create new user succeful'
         });

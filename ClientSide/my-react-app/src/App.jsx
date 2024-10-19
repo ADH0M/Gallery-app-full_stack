@@ -6,6 +6,7 @@ import SignUp from './Authentication/SignUp'
 import Login from './Authentication/Login'
 import Shop from './Components/pages/Shop'
 import NotFoundPage from './Components/pages/NotFoundPage'
+import ShowProduct from './Components/pages/ShowProduct'
 
 const router = createBrowserRouter([
     { 
@@ -21,6 +22,8 @@ const router = createBrowserRouter([
         { path:'/signup', element:<SignUp/> },
         { path:'/login', element:<Login/> },
         { path:'/shop', element:<Shop/> },
+        { path:'shop/porduct/:id', element:<ShowProduct/> },
+
       ],
       errorElement:<NotFoundPage/>
     },

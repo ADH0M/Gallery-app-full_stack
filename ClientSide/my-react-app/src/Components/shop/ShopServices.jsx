@@ -13,7 +13,6 @@ const ShopServices = ({ sections }) => {
                 size={24}
                 style={{ color: item.color, minWidth: 24 }}
               />
-
             </motion.div>
           </Link>
         ))}
