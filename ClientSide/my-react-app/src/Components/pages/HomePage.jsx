@@ -3,11 +3,11 @@ import Navbar from "../ASide/Navbar"
 
 const HomePage = () => {
   return (
-    <div>         
+    <div className="dark:bg-gray-800">         
         <header>
           <Navbar/>
         </header>
-        <Outlet/>
+        <Outlet />
     </div>
   )
 }

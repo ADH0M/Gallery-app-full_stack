@@ -5,11 +5,14 @@ import Pagination from './Pagination';
 import { Search } from 'lucide-react';
 import ProductOperations from './ProductOperations';
 import { Link } from 'react-router-dom';
+import { addToCart } from '../../store/reducers/cart';
 
 const ProductsPage = () => {
   const { loading, products } = useSelector((state) => state.productSlice);
   const dispatch = useDispatch();
-
+  const state = useSelector((st)=>st.cart)
+  console.log(state);
+  
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
@@ -37,6 +40,10 @@ const ProductsPage = () => {
     return arr;
   };
 
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
+  };
+  
   return (
     <div className='dark:bg-gray-900 dark:text-white z-5'>
       <ProductOperations />
@@ -61,7 +68,7 @@ const ProductsPage = () => {
                 </button>
               </span>
 
-              <button className='hover:opacity-80 hover:text-cyan-50 bg-blue-400 text-blue-50 my-2 p-2 rounded-lg relative left-[49%] translate-x-[-50%] dark:bg-indigo-600'>
+              <button onClick={() => handleAddToCart(product)} className='hover:opacity-80 hover:text-cyan-50 bg-blue-400 text-blue-50 my-2 p-2 rounded-lg relative left-[49%] translate-x-[-50%] dark:bg-indigo-600'>
                 Add To Cart
               </button>
             </div>

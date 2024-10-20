@@ -39,7 +39,7 @@ const Navbar = () => {
       localStorage.setItem("darkMode" ,JSON.stringify(darkMode))
     },[darkMode]);
   return (
-    <nav className ={`bg-white ${isSticky ? 'fixed top-0 w-full z-50 ' : 'relative'}  w-full z-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-md`}>
+    <nav className ={`bg-white transition-all duration-300 ${isSticky ? 'fixed top-0 w-full z-50 ' : 'relative'}  w-full z-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-md`}>
       <div className=" bg-white   w-full z-50 top-0 dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-md">
       <div className="container  mx-auto flex items-center justify-between p-4">
         <div className="flex items-center cursor-pointer" onClick={()=>{navigate('/')}}>
