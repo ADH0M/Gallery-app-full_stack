@@ -20,7 +20,9 @@ const ProductOperations = () => {
     }
   }, [searchTerm, dispatch]);
 
-  const { loading ,searchPro } = useSelector((state) => state.searchProductSlice);
+  const { loading, searchPro } = useSelector(
+    (state) => state.searchProductSlice
+  );
 
   // console.log(searchPro.limit);
   const productList = searchPro && searchPro.products;
@@ -37,7 +39,6 @@ const ProductOperations = () => {
   //   product.toLowerCase().includes(searchTerm.toLowerCase())
   // );
 
-  
   return (
     <div className="relative w-full dark:bg-gray-700 bg-white p-5 space-y-4">
       <div className="relative">
@@ -63,20 +64,22 @@ const ProductOperations = () => {
                   }}
                 />
               </div>
-              {loading && <span>loading...</span>}
-              {searchPro && productList && productList.length > 0 ? (
-                
+              {loading ? (
+                <span className="text-gray-700">loading ...</span>
+              ) : searchPro && productList && productList.length > 0 ? (
                 productList.map((product, index) => (
                   <Link key={index} to={`/shop/product/${product.id}`}>
                     <li className="z-20 p-2 border-b text-gray-900 hover:mr-9 border-gray-300">
-                      <p className="transform hover:translate-x-3 duration-300 p-1">                      
+                      <p className="transform hover:translate-x-3 duration-300 p-1">
                         {product.name}
                       </p>
                     </li>
                   </Link>
                 ))
               ) : (
-                <p>No products found</p>
+                <p className="text-blue-500 dark:text-gray-800">
+                  No products found
+                </p>
               )}
             </ul>
           </div>
@@ -103,7 +106,6 @@ const ProductOperations = () => {
           />
         </label>
       </div> */}
-
 
       {/*categories but not active..  */}
       <div>
