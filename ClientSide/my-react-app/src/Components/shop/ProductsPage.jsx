@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../store/reducers/productReducer';
 import Pagination from './Pagination';
@@ -42,7 +42,7 @@ const ProductsPage = () => {
   };
   
   return (
-    <div className='dark:bg-gray-900 dark:text-white z-5'>
+    <div className='dark:bg-gray-900  dark:text-white z-5'>
       <ProductOperations  />
       <div className="grid lg:grid-cols-4 lg:grid-rows-3 md:grid-cols-3  sm:grid-cols-2  gap-2 bg-white text-xl my-4  dark:bg-gray-900 md:mx-2 lg:mx-3 xl:mx-4 dark:text-gray-200">
         {loading ? (
@@ -50,9 +50,9 @@ const ProductsPage = () => {
         ) : (
           products &&
           products.products.map((product) => (
-            <div key={product.id} className='rounded-lg p-2 border border-blue-200 dark:border-blue-500 ms:p-2 relative  group'>
+            <div key={product.id} className='m-2 rounded-lg p-2 border border-blue-200 dark:border-blue-500 ms:p-2 relative overflow-hidden'>
                 <Link to={`/shop/porduct/${product.id}`}>
-                    <img src={`http://localhost:4000/productsImg/avatar/product-avatar-image1729087623791-123fc9c7-dfb6-4a1b-9942-8d785d41fd5d.jpeg`} alt="" className='rounded-lg' />
+                    <img className='w-full' src={`http://localhost:4000/productsImg/avatar/product-avatar-image1729087623791-123fc9c7-dfb6-4a1b-9942-8d785d41fd5d.jpeg`} alt="" className='rounded-lg' />
                 </Link>
               <div className=' p-2'>
                 <h4 className='text-lg truncate py-1 dark:text-gray-200'> {product.name}</h4>

@@ -1,6 +1,5 @@
 import {
   Facebook,
-  FacebookIcon,
   Linkedin,
   Twitter,
   Youtube,

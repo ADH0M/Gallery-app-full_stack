@@ -51,7 +51,6 @@ const Navbar = () => {
           <NavLink  to="" className="hover:text-indigo-500 dark:hover:text-indigo-300" >Home</NavLink>
           <NavLink to="shop" className= "hover:text-indigo-500 dark:hover:text-indigo-300" >Shop</NavLink>
           <NavLink to="contactus" className="hover:text-indigo-500 dark:hover:text-indigo-300"  >Contact Us</NavLink>
-          <NavLink to="Inspiration" className="hover:text-indigo-500 dark:hover:text-indigo-300" >Track your order</NavLink>
         </div>
 
         <div className=" gap-4 mx-1 w-fit flex justify-end pr:4 lg:pr-8 ">

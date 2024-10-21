@@ -65,7 +65,7 @@ const ProductOperations = () => {
                 />
               </div>
               {loading ? (
-                <span className="text-gray-700">loading ...</span>
+                <span className="text-gray-700">loading...</span>
               ) : searchPro && productList && productList.length > 0 ? (
                 productList.map((product, index) => (
                   <Link key={index} to={`/shop/product/${product.id}`}>
