@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../store/reducers/productReducer';
 import Pagination from './Pagination';
@@ -10,9 +10,6 @@ import { addToCart } from '../../store/reducers/cart';
 const ProductsPage = () => {
   const { loading, products } = useSelector((state) => state.productSlice);
   const dispatch = useDispatch();
-  const state = useSelector((st)=>st.cart)
-  console.log(state);
-  
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
@@ -46,7 +43,7 @@ const ProductsPage = () => {
   
   return (
     <div className='dark:bg-gray-900 dark:text-white z-5'>
-      <ProductOperations />
+      <ProductOperations  />
       <div className="grid lg:grid-cols-4 lg:grid-rows-3 md:grid-cols-3  sm:grid-cols-2  gap-2 bg-white text-xl my-4  dark:bg-gray-900 md:mx-2 lg:mx-3 xl:mx-4 dark:text-gray-200">
         {loading ? (
           <p className="col-span-3">loading...</p>
