@@ -8,6 +8,7 @@ import Shop from './Components/pages/Shop'
 import NotFoundPage from './Components/pages/NotFoundPage'
 import ShowProduct from './Components/pages/ShowProduct'
 import Orders from './Components/shop/Orders'
+import Categories from './Components/pages/Categories'
 
 const router = createBrowserRouter([
     { 
@@ -16,14 +17,14 @@ const router = createBrowserRouter([
       children:[
         { 
           path:'/',
-          element:<div>Children</div>
+          element:<Categories/>
         },
 
         { path:'/aside', element:<Aside/> },
         { path:'/signup', element:<SignUp/> },
         { path:'/login', element:<Login/> },
         { path:'/shop', element:<Shop/> },
-        { path:'shop/porduct/:id', element:<ShowProduct/> },
+        { path:'shop/product/:id', element:<ShowProduct/> },
         { path:'user/orders', element:<Orders/> },
 
       ],

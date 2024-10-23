@@ -1,3 +1,4 @@
+// Product and Categories model
 const { DataTypes } = require('sequelize');
 const connectMySQL = require('../database/connectMySql');
 
@@ -15,7 +16,7 @@ const Product = connectMySQL.define('Product',{
 },{ tableName: 'products',
     timestamps: false});
 
-    const Category = connectMySQL.define('Category', {
+const Category = connectMySQL.define('Category', {
         category_ID: {
             type: DataTypes.INTEGER,
             primaryKey: true,

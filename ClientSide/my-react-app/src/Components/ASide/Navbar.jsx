@@ -22,15 +22,17 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const [isMenuOpen , setIsMenuOpen] = useState(false);
+  
   const [darkMode , setDarkMode] = useState(()=>{
   const saveDarkMode = localStorage.getItem("darkMode")
-  return saveDarkMode ? JSON.parse(saveDarkMode) : false
-     } );
-     const toggleDarkMode =()=>{
+    return saveDarkMode ? JSON.parse(saveDarkMode) : false
+    } );
+  
+  const toggleDarkMode =()=>{
       return setDarkMode(!darkMode)
     };
 
-     useEffect(()=>{
+  useEffect(()=>{
       if(darkMode){
         document.documentElement.classList.add('dark')
       } else{
@@ -38,6 +40,7 @@ const Navbar = () => {
       }
       localStorage.setItem("darkMode" ,JSON.stringify(darkMode))
     },[darkMode]);
+
   return (
     <nav className ={`bg-white transition-all duration-300 ${isSticky ? 'fixed top-0 w-full z-50 ' : 'relative'}  w-full z-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-md`}>
       <div className=" bg-white   w-full z-50 top-0 dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-md">
@@ -146,4 +149,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-// 1999Adh@m

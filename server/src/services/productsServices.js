@@ -104,9 +104,8 @@ exports.createProdcut = asyncHandler(async (req , res , next )=>{
         res.json({
                 state:'ok',
                 data:[],
-                toUseImage:'http://localhost:4000/productsImg/avatar/theAvaterColumn',
                 error :null,
-                message:'create new user succeful'
+                message:'create new product succefull'
         });
 
     }catch(err){
