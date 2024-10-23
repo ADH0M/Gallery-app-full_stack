@@ -4,7 +4,8 @@ import Footer from "../ASide/Footer"
 
 const HomePage = () => {
   return (
-    <div className="dark:bg-gray-800">         
+    <div className="dark:bg-gray-800">    
+        
         <header>
           <Navbar/>
         </header>

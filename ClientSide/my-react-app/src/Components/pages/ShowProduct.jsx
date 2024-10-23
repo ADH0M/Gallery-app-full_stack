@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../store/reducers/singleProductReducer";
@@ -19,7 +19,7 @@ const ShowProduct = () => {
   const pro = Array.isArray(product.product)
     ? product.product
     : [product.product];
-  console.log(pro);
+
 
   return (
     <div className="container  w-full mx-auto p-4">
@@ -42,9 +42,9 @@ const ShowProduct = () => {
                 ))}
               </p>
             </ul>
-            <h5>{item.category_id}</h5>
+            {/* <h5>{item.category_id}</h5> */}
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              {item.stock}
+              stock :{item.stock}
             </p>
 
             <div className="text-lg font-bold text-blue-600 mb-2">
@@ -52,21 +52,27 @@ const ShowProduct = () => {
                 {item.price} EGY
               </span>
 
-            <button className="bg-white rounded-l border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-l dark:text-white dark:bg-gray-500 border-gray-200">
+            <button className="bg-white rounded-l border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2  border-l dark:text-white dark:bg-gray-500 border-gray-200">
               -
             </button>
 
-            <div className="bg-gray-100 border-t border-b border-gray-100 text-gray-600 hover:bg-gray-100 inline-flex items-center px-4 py-1 select-none">
+            <div className="bg-gray-100 border-t border-b border-gray-100 text-gray-600 hover:bg-gray-100 inline-flex items-center px-4  select-none">
               1
             </div>
-            <button className="bg-white rounded-r border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r dark:text-white dark:bg-gray-500 border-gray-200">
+            <button className="bg-white rounded-r border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2  border-r dark:text-white dark:bg-gray-500 border-gray-200">
               +
             </button>
             </div>
+            
+            <div>
 
-            <button className="py-2 px-4 bg-blue-500 text-white  rounded hover:bg-blue-600 block  absolute left-1/2 bottom-8 -translate-x-1/2 ">
+            <button className="py-2 px-4 bg-blue-500 text-white  rounded hover:bg-blue-600 mx-2">
               Add to order
             </button>
+            <button className="py-2 px-4 bg-blue-500 text-white  rounded hover:bg-blue-600 mx-2 ">
+              Chuck Out
+            </button>
+            </div>
           </div>
         </div>
       ))}

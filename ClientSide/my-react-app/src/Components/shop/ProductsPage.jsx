@@ -52,7 +52,7 @@ const ProductsPage = () => {
           products.products.map((product) => (
             <div key={product.id} className='m-2 rounded-lg p-2 border border-blue-200 dark:border-blue-500 ms:p-2 relative overflow-hidden'>
                 <Link to={`/shop/product/${product.id}`}>
-                    <img className='w-full' src={`http://localhost:4000/productsImg/avatar/product-avatar-image1729087623791-123fc9c7-dfb6-4a1b-9942-8d785d41fd5d.jpeg`} alt="" className='rounded-lg' />
+                    <img className='w-full rounded-lg' src={`http://localhost:4000/productsImg/avatar/product-avatar-image1729087623791-123fc9c7-dfb6-4a1b-9942-8d785d41fd5d.jpeg`} alt=""  />
                 </Link>
               <div className=' p-2'>
                 <h4 className='text-lg truncate py-1 dark:text-gray-200'> {product.name}</h4>

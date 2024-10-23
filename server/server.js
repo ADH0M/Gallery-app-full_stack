@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'src/upload')));
         await connectMySQL.sync();
     }catch(err){
         throw new Error(err)
-    };
+    }; 
 
 })();
 
