@@ -1,0 +1,486 @@
+{
+	"info": {
+		"_postman_id": "b048d7b1-c0cf-408c-a571-69e3791add27",
+		"name": "E-shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37778259"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "adham",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "adhamtorky5@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "passwordConfirm",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01066377396",
+									"type": "text"
+								},
+								{
+									"key": "whatsUpNumber",
+									"value": "01008166929",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "manager",
+									"type": "text"
+								},
+								{
+									"key": "birthdate",
+									"value": "1999-07-15",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:6000/auth/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "user login",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "prodcuts oporations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/product?searchCategory=mouse&minPrice=425&maxPrice=10000&page=1&limit=4&name=Logitech G502 X Wired",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "searchCategory",
+									"value": "mouse"
+								},
+								{
+									"key": "minPrice",
+									"value": "425"
+								},
+								{
+									"key": "maxPrice",
+									"value": "10000"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "4"
+								},
+								{
+									"key": "name",
+									"value": "Logitech G502 X Wired"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/product/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"product",
+								"10"
+							],
+							"query": [
+								{
+									"key": "searchCategory",
+									"value": "mouse",
+									"disabled": true
+								},
+								{
+									"key": "minPrice",
+									"value": "425",
+									"disabled": true
+								},
+								{
+									"key": "maxPrice",
+									"value": "10000",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "4",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Logitech G502 X Wired",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "smart ",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "phone",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "120",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "postman-cloud:///1ef7538c-d9ec-4ed0-a7d0-56a2c9778c0e"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"product"
+							],
+							"query": [
+								{
+									"key": "searchCategory",
+									"value": "mouse",
+									"disabled": true
+								},
+								{
+									"key": "minPrice",
+									"value": "425",
+									"disabled": true
+								},
+								{
+									"key": "maxPrice",
+									"value": "10000",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "4",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Logitech G502 X Wired",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update prodcut byid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "no users",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "400",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "new title users afjakl",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "12389",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/product/50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"product",
+								"50"
+							],
+							"query": [
+								{
+									"key": "stock",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "add new data",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:4000/product/49"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "getAllcategories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": "http://localhost:4000/category"
+					},
+					"response": []
+				},
+				{
+					"name": "get Category by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/category/2"
+					},
+					"response": []
+				},
+				{
+					"name": "update category by_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "category_name",
+									"value": "Speakers",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:4000/category/4"
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/category/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"category",
+								"7"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "9",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "categroyName",
+									"value": "bus",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:4000/category"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "get one user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1sYWRoYW05MkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwOSRDdDJIaHUvT1hyQnJ5NFFFZHFlRER1T01KVTNzVFliMm54QmRNcTNCMFFIU21PclNsU05xdSIsImlhdCI6MTcyOTc3NjEwOCwiZXhwIjoxNzMxNTA0MTA4fQ.vRFPgPFVSeMqMw05teqxGs7DlA5C6bKEnyQ0Gry3E4E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/user?email=mladham92@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "mladham92@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

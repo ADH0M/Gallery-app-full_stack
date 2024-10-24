@@ -1,0 +1,27 @@
+SELECT * FROM galleryapp.cart;
+-- ALTER TABLE orders modify COLUMN order_date DATETIME DEFAULT NOW();
+-- CREATE TABLE cart (
+--     cart_id INT PRIMARY KEY auto_increment,
+--     product_id INT,
+--     quantity INT,
+--     order_id INT,
+--     total_cost DECIMAL(10, 2),
+-- 	FOREIGN KEY (order_id) REFERENCES orders (order_id),
+--     FOREIGN KEY (product_id) REFERENCES products(id)
+-- );
+-- -- CREATE TABLE tproducts (
+-- --     product_id INT PRIMARY KEY,
+-- --     price DECIMAL(10, 2)
+-- -- );
+
+-- DELIMITER //
+-- CREATE TRIGGER calculate_total_cost
+-- BEFORE INSERT ON cart
+-- FOR EACH ROW
+-- BEGIN
+--     DECLARE prod_price DECIMAL(10, 2);
+--     SELECT price INTO prod_price FROM products WHERE id = NEW.product_id;
+--     SET NEW.total_cost = NEW.quantity * prod_price;
+-- END;
+-- //
+-- DELIMITER ;

@@ -2,9 +2,13 @@ import axios from "axios";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logIn } from "../store/reducers/user";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  
   const initialValues = {
     email: '',
     password: ''
@@ -26,9 +30,15 @@ const LoginPage = () => {
           onSubmit={async (values, { setStatus, setSubmitting }) => {
             try {
               const response = await axios.post('http://localhost:4000/auth/login', values);
+              if(response ){
+                dispatch(logIn(response.data));
+              };
               console.log('Response:', response);
               navigate('/');
-              localStorage.setItem('token',response.data.token)
+
+              localStorage.setItem('token',response.data.token);
+              localStorage.setItem('userEmail',values.email);
+              
             } catch (error) {
               console.error('Error:', error);
               setStatus({ error: 'Login failed. Please try again.' });

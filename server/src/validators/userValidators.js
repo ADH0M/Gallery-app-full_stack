@@ -67,8 +67,7 @@ exports.userLoginValidator = [
 
 exports.searchUserName = [
   check("name")
-    .notEmpty()
-    .withMessage("name is require")
+    .optional()
     .isLength({ min: 3 })
     .withMessage("too short ,the name must be 3."),
     

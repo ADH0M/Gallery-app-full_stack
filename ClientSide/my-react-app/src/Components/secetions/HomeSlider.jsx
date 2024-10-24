@@ -5,7 +5,7 @@ const HomeSlider = () => {
   const images = [
     "http://localhost:5173/gallery.icon.png",
     "http://localhost:4000/galler.icon.jpeg",
-    "http://localhost:5173/gallery.icon.png",
+    "https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,7 +23,7 @@ const HomeSlider = () => {
   };
 
   return (
-    <div className="container m-4 bg-red-400 rounded-lg relative">
+    <div className=" m-4  rounded-lg relative">
       <div className="relative overflow-hidden h-96 w-full">
         <img
           src={images[currentIndex]}

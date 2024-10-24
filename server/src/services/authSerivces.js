@@ -123,13 +123,13 @@ exports.allwoToManager =(...role) =>
 
 exports.authLogIn = expressAsyncHandler( async ( req , res , next ) => {
     const {email , password  } = req.body ;
-    const hashPass = hashPassword(password);
-    const isValidPass = isValidPassword(password , hashPass)
     const user = await User.findOne({where:{email}});
-    
+    const isValidPass = isValidPassword( password ,user.password ); 
+
     if(!user || !isValidPass ){
         return next(new ApiError('not found your email or password is faileur' , 404 ));
     };
+
     const token = jwtSign({email:user.email , password:user.password})
     res.json({
         data :{...user.toJSON() , password:undefined ,createdAt:undefined ,updatedAt:undefined },

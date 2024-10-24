@@ -9,23 +9,21 @@ import NotFoundPage from "./Components/pages/NotFoundPage";
 import ShowProduct from "./Components/pages/ShowProduct";
 import Orders from "./Components/shop/Orders";
 import Categories from "./Components/pages/Categories";
-import HomeSlider from "./Components/secetions/HomeSlider";
+import UserProfile from "./Components/secetions/UserProfile";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
     children: [
-      {
-        path: "/",
-        element: <Categories />,
-      },
+      {path: "/",element: <Categories />},
       { path: "/aside", element: <Aside /> },
       { path: "/signup", element: <SignUp /> },
       { path: "/login", element: <Login /> },
       { path: "/shop", element: <Shop /> },
       { path: "shop/product/:id", element: <ShowProduct /> },
       { path: "user/orders", element: <Orders /> },
+      { path: "profile", element: <UserProfile /> },
     ],
     errorElement: <NotFoundPage />,
   },

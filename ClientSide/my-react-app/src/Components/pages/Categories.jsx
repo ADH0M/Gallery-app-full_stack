@@ -11,8 +11,7 @@ const Categories = () => {
   useEffect(() => {
     dispatch(getcategories());
   }, [dispatch]);
-  console.log(categories);
-
+  
   return (
     <>
       <div>
